@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="styles/all.min.css">
+    <!-- google fonts pacifico -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <!-- righteous font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <!-- Bree font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <!-- PT sans caption font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&family=PT+Sans+Caption:wght@400;700&family=Pacifico&family=Righteous&display=swap" rel="stylesheet">
+    <!-- custom style -->
+    <link rel="stylesheet" href="styles/style.css">
+    <title>Bookmark</title>
+</head>
+<body id="body">
+    <section class="pt-5 min-vh-100">
+        <div class="container">
+            <h1 class="text-center m-auto position-relative">Bookmarker</h1>
+            <div class="bookmark my-5 pt-3">
+                <h2 class="text-center">
+                    <span class="me-1"><i class="fa-solid fa-bookmark"></i></span> Bookmark your favorite sites 
+                    <span class="ms-1"><i class="fa-solid fa-bookmark"></i></span>
+                </h2>
+                <form class="mt-5 mb-3">
+                    <div class="mb-3">
+                        <label for="siteName" class="form-label fw-bold">
+                            <span class="me-1"><i class="fa-solid fa-book-bookmark"></i></span>
+                            Site Name
+                        </label>
+                        <input type="text"
+                         class="form-control py-2" 
+                         id="siteName" 
+                         placeholder="Bookmark Name" 
+                         autocomplete="off"
+                         oninput="validate(nameRegex,siteName)">
+                      </div>
+                    <div class="mb-3">
+                        <label for="siteUrl" class="form-label fw-bold">
+                            <span class="me-1"><i class="fa-solid fa-link"></i></span>
+                            Site URL
+                        </label>
+                        <input type="url" 
+                        class="form-control py-2" 
+                        id="siteUrl" 
+                        placeholder="Site Url" 
+                        autocomplete="off"
+                        oninput="validate(urlRegex,siteUrl)">
+                      </div>
+                      <button class="btn py-2 px-5 m-auto text-white d-flex justify-content-center align-content-center"
+                       type="button" onclick="addBookmark()">Submit</button>
+                </form>
+            </div>
+
+            <table class="table">
+                <thead class="text-center">
+                  <tr>
+                    <th scope="col">Index</th>
+                    <th scope="col">Website Name</th>
+                    <th scope="col">Visit</th>
+                    <th scope="col">Delete</th>
+                  </tr>
+                </thead>
+                <tbody id="bookmarkContainer">
+                </tbody>
+            </table>
+            <div class="box  position-fixed top-50 start-50 translate-middle d-flex justify-content-center align-items-center">
+                <div class="content  p-3">
+                    <div class="d-flex justify-content-between mb-3" >
+                        <div class="dots">
+                            <span class="red"><i class="fa-solid fa-circle"></i></span>
+                            <span class="yellow"><i class="fa-solid fa-circle"></i></span>
+                            <span class="green"><i class="fa-solid fa-circle"></i></span>
+                        </div>
+                        <button type="button" class="btn-close" onclick="dismiss(event)"></button>
+                    </div>
+                    <div class="rules">
+                     <p>Site Name or Url is not valid, Please follow the rules below :</p>
+                     <ul class="list-unstyled">
+                        <li class="mb-2"><span><i class="fa-regular fa-circle-right"></i>
+                        </span>Site name must contain at least 3 characters
+                        </li>
+                        <li><span><i class="fa-regular fa-circle-right"></i>
+                        </span>Site URL must be a valid one
+                        </li>
+                     </ul>
+                    </div>
+                </div>
+            </div>
+            </div>
+    </section>
+  
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+</body>
+</html>
